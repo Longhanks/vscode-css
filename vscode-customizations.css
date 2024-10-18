@@ -1,0 +1,23 @@
+.monaco-editor .monaco-editor-background {
+    border-left: 1px solid #d1d1d1
+}
+
+.monaco-workbench .part.sidebar > .title {
+    background-color: #e0e0e066;
+    border-bottom: 1px solid #d1d1d1
+}
+
+.debug-watch .expression {
+    font-family: SF Mono !important;
+    font-size: 12px !important
+}
+
+.debug-variables .expression {
+    font-family: SF Mono !important;
+    font-size: 12px !important
+}
+
+.debug-call-stack .expression {
+    font-family: SF Mono !important;
+    font-size: 12px !important
+}
