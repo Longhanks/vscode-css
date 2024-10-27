@@ -21,3 +21,7 @@
     font-family: SF Mono !important;
     font-size: 12px !important
 }
+
+.monaco-editor .lines-content .core-guide-indent.lvl-0 {
+    display: none !important
+}
