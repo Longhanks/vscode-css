@@ -25,3 +25,7 @@
 .monaco-editor .lines-content .core-guide-indent.lvl-0 {
     display: none !important
 }
+
+.minimap.slider-always {
+    border-left: 1px solid #d1d1d1
+}
