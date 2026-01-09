@@ -1,0 +1,129 @@
+    <script>
+        (function () {
+            const orig = Element.prototype.attachShadow;
+
+            Element.prototype.attachShadow = function (init) {
+            const shadowRoot = orig.call(this, init);
+
+            const style = document.createElement("style");
+            style.textContent = `
+                ul.actions-container li:has(span.action-label[aria-label="Add File to Chat"]) {
+                    display: none !important;
+                }
+                ul.actions-container li:has(span.action-label[aria-label="Open Inline Chat"]) {
+                    display: none !important;
+                }
+                ul.actions-container li:has(span.action-label[aria-label="Explain"]) {
+                    display: none !important;
+                }
+                ul.actions-container li:has(span.action-label[aria-label="Generate Code"]) {
+                    display: none !important;
+                }
+                ul.actions-container li:has(span.action-label[aria-label="Generate Code"]) + li {
+                    display: none !important;
+                }
+                ul.actions-container li:has(span.action-label[aria-label="Add Selection to Chat"]) {
+                    display: none !important;
+                }
+            `;
+            shadowRoot.appendChild(style);
+
+            return shadowRoot;
+        };
+        })();
+    </script>
+
+	<!-- Startup (do not modify order of script tags!) -->
+	<script src="./workbench.js" type="module"></script>
+
+    <style>
+        ul.actions-container li:has(span.action-label[aria-label="Add File to Chat"]) {
+            display: none !important;
+        }
+        ul.actions-container li:has(span.action-label[aria-label="Add File to Chat"]) + li {
+            display: none !important;
+        }
+
+        ul[aria-label="Title actions"].actions-container {
+            gap: 0px !important;
+        }
+
+        ul[aria-label="Title actions"].actions-container > li.action-item {
+            background-color: var(--vscode-commandCenter-background);
+            border-top: 1px solid var(--vscode-commandCenter-border);
+            border-bottom: 1px solid var(--vscode-commandCenter-border);
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+
+        ul[aria-label="Title actions"].actions-container > li.action-item:first-child {
+            border-left: 1px solid var(--vscode-commandCenter-border);
+            border-radius: 6px 0px 0px 6px;
+        }
+
+        ul[aria-label="Title actions"].actions-container > li.action-item:last-child {
+            border-right: 1px solid var(--vscode-commandCenter-border);
+            border-radius: 0px 6px 6px 0px;
+        }
+
+        ul[aria-label="Title actions"].actions-container > li.action-item:has(a.action-label[aria-label="1 - Build"]) {
+            border-left: 1px solid var(--vscode-commandCenter-border);
+            border-radius: 6px 0px 0px 6px;
+        }
+
+        ul[aria-label="Title actions"].actions-container > li.action-item:has(a.action-label[aria-label="2 - Debug"]) {
+            border-right: 1px solid var(--vscode-commandCenter-border);
+            border-radius: 0px 6px 6px 0px;
+            margin-right: 4px;
+        }
+
+        ul[aria-label="Title actions"].actions-container > li.action-item:has(a.action-label[aria-label="3 - Locate Current File in Explorer View"]) {
+            border-left: 1px solid var(--vscode-commandCenter-border);
+            border-radius: 6px 0px 0px 6px;
+            margin-left: 4px;
+        }
+
+        ul[aria-label="Title actions"].actions-container > li.action-item:has(a.action-label[aria-label="4 - Toggle Explorer View Auto Reveal"]) {
+            border-right: 1px solid var(--vscode-commandCenter-border);
+            border-radius: 0px 6px 6px 0px;
+            margin-right: 4px;
+        }
+
+        ul[aria-label="Title actions"].actions-container > li.action-item:has(a.action-label[aria-label="5 - Toggle Panel"]) {
+            border-left: 1px solid var(--vscode-commandCenter-border);
+            border-radius: 6px 0px 0px 6px;
+            margin-left: 4px;
+        }
+
+        .monaco-editor .monaco-editor-background {
+            border-left: 1px solid #d1d1d1;
+        }
+
+        .monaco-workbench .part.sidebar > .title {
+            background-color: #f1f1f1;
+            border-bottom: 1px solid #d1d1d1;
+        }
+
+        .debug-watch .expression {
+            font-family: SF Mono !important;
+            font-size: 12px !important
+        }
+
+        .debug-variables .expression {
+            font-family: SF Mono !important;
+            font-size: 12px !important
+        }
+
+        .debug-call-stack .expression {
+            font-family: SF Mono !important;
+            font-size: 12px !important
+        }
+
+        .monaco-editor .lines-content .core-guide-indent.lvl-0 {
+            display: none !important
+        }
+
+        .minimap.slider-always {
+            border-left: 1px solid #d1d1d1
+        }
+    </style>
