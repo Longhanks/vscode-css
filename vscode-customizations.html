@@ -1,3 +1,19 @@
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- add 'unsafe-inline'-->
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="
+				script-src
+					'unsafe-inline'
+				;
+		"/>
+
+		<!-- Workbench CSS -->
+		<link rel="stylesheet" href="../../../workbench/workbench.desktop.main.css">
+	</head>
+
     <script>
         (function () {
             const orig = Element.prototype.attachShadow;
