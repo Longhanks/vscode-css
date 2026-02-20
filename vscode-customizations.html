@@ -56,59 +56,9 @@
         ul.actions-container li:has(span.action-label[aria-label="Add File to Chat"]) {
             display: none !important;
         }
+
         ul.actions-container li:has(span.action-label[aria-label="Add File to Chat"]) + li {
             display: none !important;
-        }
-
-        ul[aria-label="Title actions"].actions-container {
-            gap: 0px !important;
-        }
-
-        ul[aria-label="Title actions"].actions-container > li.action-item {
-            background-color: var(--vscode-commandCenter-background);
-            border-top: 1px solid var(--vscode-commandCenter-border);
-            border-bottom: 1px solid var(--vscode-commandCenter-border);
-            padding-left: 2px;
-            padding-right: 2px;
-        }
-
-        ul[aria-label="Title actions"].actions-container > li.action-item:first-child {
-            border-left: 1px solid var(--vscode-commandCenter-border);
-            border-radius: 6px 0px 0px 6px;
-        }
-
-        ul[aria-label="Title actions"].actions-container > li.action-item:last-child {
-            border-right: 1px solid var(--vscode-commandCenter-border);
-            border-radius: 0px 6px 6px 0px;
-        }
-
-        ul[aria-label="Title actions"].actions-container > li.action-item:has(a.action-label[aria-label="1 - Build"]) {
-            border-left: 1px solid var(--vscode-commandCenter-border);
-            border-radius: 6px 0px 0px 6px;
-        }
-
-        ul[aria-label="Title actions"].actions-container > li.action-item:has(a.action-label[aria-label="2 - Debug"]) {
-            border-right: 1px solid var(--vscode-commandCenter-border);
-            border-radius: 0px 6px 6px 0px;
-            margin-right: 4px;
-        }
-
-        ul[aria-label="Title actions"].actions-container > li.action-item:has(a.action-label[aria-label="3 - Locate Current File in Explorer View"]) {
-            border-left: 1px solid var(--vscode-commandCenter-border);
-            border-radius: 6px 0px 0px 6px;
-            margin-left: 4px;
-        }
-
-        ul[aria-label="Title actions"].actions-container > li.action-item:has(a.action-label[aria-label="4 - Toggle Explorer View Auto Reveal"]) {
-            border-right: 1px solid var(--vscode-commandCenter-border);
-            border-radius: 0px 6px 6px 0px;
-            margin-right: 4px;
-        }
-
-        ul[aria-label="Title actions"].actions-container > li.action-item:has(a.action-label[aria-label="5 - Toggle Panel"]) {
-            border-left: 1px solid var(--vscode-commandCenter-border);
-            border-radius: 6px 0px 0px 6px;
-            margin-left: 4px;
         }
 
         .monaco-editor .monaco-editor-background {
