@@ -32,14 +32,40 @@
                 ul.actions-container li:has(span.action-label[aria-label="Explain"]) {
                     display: none !important;
                 }
-                ul.actions-container li:has(span.action-label[aria-label="Generate Code"]) {
+                ul.actions-container li:has(span.action-label[aria-label="Review"]) {
                     display: none !important;
                 }
-                ul.actions-container li:has(span.action-label[aria-label="Generate Code"]) + li {
+                ul.actions-container li:has(span.action-label[aria-label="Review"]) + li {
                     display: none !important;
                 }
                 ul.actions-container li:has(span.action-label[aria-label="Add Selection to Chat"]) {
                     display: none !important;
+                }
+                .monaco-action-bar .action-label, .monaco-action-bar .action-item .keybinding {
+                    border-radius: 5px !important;
+                }
+                .monaco-menu .monaco-action-bar.vertical .action-menu-item {
+                    border-radius: 4px !important;
+                    height: 2em !important;
+                }
+                .monaco-menu .monaco-action-bar.vertical .action-item.focused > .action-menu-item {
+                    background-color: var(--vscode-menu-selectionBackground) !important;
+                    color: var(--vscode-menu-selectionForeground) !important;
+                    outline: var(--vscode-menu-selectionBorder) !important;
+                    outline-offset: -1px !important;
+                }
+                .monaco-menu-container {
+                    border-radius: 5px !important;
+                    box-shadow: 0 2px 8px var(--vscode-widget-shadow) !important;
+                    outline: 1px solid var(--vscode-menu-border) !important;
+                }
+                .monaco-scrollable-element:has(> .monaco-menu) {
+                    border-radius: 5px !important;
+                    outline: none !important;
+                }
+                .monaco-scrollable-element .monaco-menu {
+                    border-radius: 5px !important;
+                    border: none !important;
                 }
             `;
             shadowRoot.appendChild(style);
@@ -59,6 +85,10 @@
 
         ul.actions-container li:has(span.action-label[aria-label="Add File to Chat"]) + li {
             display: none !important;
+        }
+
+        .monaco-action-bar .action-label, .monaco-action-bar .action-item .keybinding {
+            border-radius: 5px !important;
         }
 
         .monaco-editor .monaco-editor-background {
@@ -89,8 +119,36 @@
             display: none !important
         }
 
+        .monaco-menu .monaco-action-bar.vertical .action-menu-item {
+            border-radius: 4px !important;
+            height: 2em !important;
+        }
+
+        .monaco-menu .monaco-action-bar.vertical .action-item.focused > .action-menu-item {
+            background-color: var(--vscode-menu-selectionBackground) !important;
+            color: var(--vscode-menu-selectionForeground) !important;
+            outline: var(--vscode-menu-selectionBorder) !important;
+            outline-offset: -1px !important;
+        }
+
+        .monaco-menu-container {
+            border-radius: 5px !important;
+            box-shadow: 0 2px 8px var(--vscode-widget-shadow) !important;
+            outline: 1px solid var(--vscode-menu-border) !important;
+        }
+
+        .monaco-scrollable-element:has(> .monaco-menu) {
+            border-radius: 5px !important;
+            outline: none !important;
+        }
+
+        .monaco-scrollable-element .monaco-menu {
+            border-radius: 5px !important;
+            border: none !important;
+        }
+
         .minimap.slider-always {
-            border-left: 1px solid #d1d1d1
+            border-left: 1px solid #d1d1d1;
         }
 
         .monaco-workbench .quick-input-widget {
