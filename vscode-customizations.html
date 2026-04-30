@@ -115,6 +115,10 @@
             font-size: 12px !important
         }
 
+        .monaco-editor .find-widget {
+            border: 1px solid #d1d1d1 !important;
+        }
+
         .monaco-editor .lines-content .core-guide-indent.lvl-0 {
             display: none !important
         }
@@ -154,6 +158,7 @@
         .monaco-workbench .quick-input-widget {
             background-color: color-mix(in srgb, var(--vscode-quickInput-background) 30%, transparent) !important;
             backdrop-filter: blur(40px) saturate(180%);
+            border: 1px solid #d1d1d1 !important;
         }
 
         .monaco-workbench .quick-input-widget .monaco-list-rows {
@@ -186,5 +191,9 @@
 
         .monaco-workbench .quick-input-widget .monaco-list.list_id_6:not(.drop-target):not(.dragging) .monaco-list-row:hover:not(.selected):not(.focused) {
             background-color: color-mix(in srgb, var(--vscode-list-hoverBackground) 40%, transparent);
+        }
+
+        .notification-toast > .notifications-list-container {
+            border: 1px solid #d1d1d1 !important;
         }
     </style>
