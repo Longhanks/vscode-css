@@ -23,49 +23,58 @@
 
             const style = document.createElement("style");
             style.textContent = `
+                /* Menus: Remove "Add File to Chat" */
                 ul.actions-container li:has(span.action-label[aria-label="Add File to Chat"]) {
                     display: none !important;
                 }
+
+                /* Menus: Remove "Open Inline Chat" */
                 ul.actions-container li:has(span.action-label[aria-label="Open Inline Chat"]) {
                     display: none !important;
                 }
+
+                /* Menus: Remove "Explain" */
                 ul.actions-container li:has(span.action-label[aria-label="Explain"]) {
                     display: none !important;
                 }
+
+                /* Menus: Remove "Review" */
                 ul.actions-container li:has(span.action-label[aria-label="Review"]) {
                     display: none !important;
                 }
+
+                /* Menus: Remove separator after "Review" */
                 ul.actions-container li:has(span.action-label[aria-label="Review"]) + li {
                     display: none !important;
                 }
+
+                /* Menus: Remove "Add Selection to Chat" */
                 ul.actions-container li:has(span.action-label[aria-label="Add Selection to Chat"]) {
                     display: none !important;
                 }
-                .monaco-action-bar .action-label, .monaco-action-bar .action-item .keybinding {
-                    border-radius: 5px !important;
+
+                /* Menus: Remove "Share" */
+                ul.actions-container li:has(span.action-label[aria-label="Share"]) {
+                    display: none !important;
                 }
-                .monaco-menu .monaco-action-bar.vertical .action-menu-item {
-                    border-radius: 4px !important;
-                    height: 2em !important;
+
+                /* Menus: Remove separator after "Share" */
+                ul.actions-container li:has(span.action-label[aria-label="Share"]) + li {
+                    display: none !important;
                 }
+
+                /* Menus: Restore theme color support */
                 .monaco-menu .monaco-action-bar.vertical .action-item.focused > .action-menu-item {
                     background-color: var(--vscode-menu-selectionBackground) !important;
                     color: var(--vscode-menu-selectionForeground) !important;
                     outline: var(--vscode-menu-selectionBorder) !important;
                     outline-offset: -1px !important;
                 }
-                .monaco-menu-container {
-                    border-radius: 5px !important;
-                    box-shadow: 0 2px 8px var(--vscode-widget-shadow) !important;
-                    outline: 1px solid var(--vscode-menu-border) !important;
-                }
-                .monaco-scrollable-element:has(> .monaco-menu) {
-                    border-radius: 5px !important;
-                    outline: none !important;
-                }
-                .monaco-scrollable-element .monaco-menu {
-                    border-radius: 5px !important;
-                    border: none !important;
+
+                /* Menus: Un-round hover background color edges */
+                .monaco-menu .monaco-action-bar.vertical .action-menu-item {
+                    border-radius: 4px !important;
+                    height: 2em !important;
                 }
             `;
             shadowRoot.appendChild(style);
@@ -79,59 +88,80 @@
 	<script src="./workbench.js" type="module"></script>
 
     <style>
-        ul.actions-container li:has(span.action-label[aria-label="Add File to Chat"]) {
-            display: none !important;
-        }
-
-        ul.actions-container li:has(span.action-label[aria-label="Add File to Chat"]) + li {
-            display: none !important;
-        }
-
+        /* Hide agents banner */
         .agents-banner {
             display: none !important;
         }
 
-        .monaco-action-bar .action-label, .monaco-action-bar .action-item .keybinding {
-            border-radius: 5px !important;
+        /* Force watches font & font size */
+        .debug-watch .expression {
+            font-family: SF Mono !important;
+            font-size: 12px !important;
         }
 
+        /* Force variables font & font size */
+        .debug-variables .expression {
+            font-family: SF Mono !important;
+            font-size: 12px !important;
+        }
+
+        /* Force call stack font & font size */
+        .debug-call-stack .expression {
+            font-family: SF Mono !important;
+            font-size: 12px !important;
+        }
+
+        /* Menus: Remove "Add File to Chat" */
+        ul.actions-container li:has(span.action-label[aria-label="Add File to Chat"]) {
+            display: none !important;
+        }
+
+        /* Menus: Remove separator after "Add File to Chat" */
+        ul.actions-container li:has(span.action-label[aria-label="Add File to Chat"]) + li {
+            display: none !important;
+        }
+
+        /* Menus: Remove "Add Folder to Chat" */
+        ul.actions-container li:has(span.action-label[aria-label="Add Folder to Chat"]) {
+            display: none !important;
+        }
+
+        /* Menus: Remove separator after "Add Folder to Chat" */
+        ul.actions-container li:has(span.action-label[aria-label="Add Folder to Chat"]) + li {
+            display: none !important;
+        }
+
+        /* Menus: Remove "Share" */
+        ul.actions-container li:has(span.action-label[aria-label="Share"]) {
+            display: none !important;
+        }
+
+        /* Menus: Remove separator after "Share" */
+        ul.actions-container li:has(span.action-label[aria-label="Share"]) + li {
+            display: none !important;
+        }
+
+        /* Editor area: Border left */
         .monaco-editor .monaco-editor-background {
             border-left: 1px solid #d1d1d1;
         }
 
-        .monaco-workbench .part.sidebar > .title {
-            background-color: #f1f1f1;
-            border-bottom: 1px solid #d1d1d1;
-        }
-
-        .debug-watch .expression {
-            font-family: SF Mono !important;
-            font-size: 12px !important
-        }
-
-        .debug-variables .expression {
-            font-family: SF Mono !important;
-            font-size: 12px !important
-        }
-
-        .debug-call-stack .expression {
-            font-family: SF Mono !important;
-            font-size: 12px !important
-        }
-
-        .monaco-editor .find-widget {
-            border: 1px solid #d1d1d1 !important;
-        }
-
+        /* Editor area: indent guide left border would double with always-visible left border from above, so hide it */
         .monaco-editor .lines-content .core-guide-indent.lvl-0 {
-            display: none !important
+            display: none !important;
         }
 
-        .monaco-menu .monaco-action-bar.vertical .action-menu-item {
-            border-radius: 4px !important;
-            height: 2em !important;
+        /* Minimap: Border left */
+        .minimap.slider-always {
+            border-left: 1px solid #d1d1d1;
         }
 
+        /* Minimap: Hide shadow to the left */
+        .minimap-shadow-visible {
+            display: none !important;
+        }
+
+        /* Menus: Restore theme color support */
         .monaco-menu .monaco-action-bar.vertical .action-item.focused > .action-menu-item {
             background-color: var(--vscode-menu-selectionBackground) !important;
             color: var(--vscode-menu-selectionForeground) !important;
@@ -139,65 +169,131 @@
             outline-offset: -1px !important;
         }
 
-        .monaco-menu-container {
-            border-radius: 5px !important;
+        /* Menus: Un-round hover background color edges */
+        .monaco-menu .monaco-action-bar.vertical .action-menu-item {
+            border-radius: 4px !important;
+            height: 2em !important;
+        }
+
+        /* Menubar menus: Restore shadow */
+        .menubar-menu-items-holder.monaco-menu-container {
+            border-radius: 8px !important;
             box-shadow: 0 2px 8px var(--vscode-widget-shadow) !important;
-            outline: 1px solid var(--vscode-menu-border) !important;
         }
 
-        .monaco-scrollable-element:has(> .monaco-menu) {
-            border-radius: 5px !important;
-            outline: none !important;
-        }
-
-        .monaco-scrollable-element .monaco-menu {
-            border-radius: 5px !important;
-            border: none !important;
-        }
-
-        .minimap.slider-always {
-            border-left: 1px solid #d1d1d1;
-        }
-
+        /* Command palette: Translucency */
         .monaco-workbench .quick-input-widget {
             background-color: color-mix(in srgb, var(--vscode-quickInput-background) 30%, transparent) !important;
             backdrop-filter: blur(40px) saturate(180%);
             border: 1px solid #d1d1d1 !important;
         }
 
+        /* Command palette list items: Translucency */
         .monaco-workbench .quick-input-widget .monaco-list-rows {
             background-color: transparent !important;
         }
 
-        .monaco-workbench .quick-input-widget .quick-input-header,
-        .monaco-workbench .quick-input-widget .quick-input-list,
-        .monaco-workbench .quick-input-widget .quick-input-titlebar,
-        .monaco-workbench .quick-input-widget .quick-input-title,
-        .monaco-workbench .quick-input-widget .quick-input-description,
-        .monaco-workbench .quick-input-widget .quick-input-filter,
-        .monaco-workbench .quick-input-widget .quick-input-action,
-        .monaco-workbench .quick-input-widget .quick-input-message,
-        .monaco-workbench .quick-input-widget .monaco-list,
-        .monaco-workbench .quick-input-widget .monaco-list-row {
-            border-color: transparent !important;
-            outline: none !important;
-        }
-
-        .monaco-workbench .quick-input-widget .monaco-inputbox {
-            box-shadow: none !important;
-            background: transparent !important;
-        }
-
+        /* Command palette text input: Translucency */
         .monaco-workbench .quick-input-widget .quick-input-filter .monaco-inputbox {
             background: color-mix(in srgb, var(--vscode-input-background) 60%, transparent) !important;
-            border-radius: 6px;
         }
 
-        .monaco-workbench .quick-input-widget .monaco-list.list_id_6:not(.drop-target):not(.dragging) .monaco-list-row:hover:not(.selected):not(.focused) {
-            background-color: color-mix(in srgb, var(--vscode-list-hoverBackground) 40%, transparent);
+        /* Editor: area: Make left border a single pixel */
+        .modern-ui-compact .monaco-grid-view .part.editor:not(.modal-editor-part):not(.floating-editor-outer-left) {
+            border-left: none !important;
         }
 
-        .notification-toast > .notifications-list-container {
-            border: 1px solid #d1d1d1 !important;
+        /* Editor area: Make content full width to allow making up for pixel lost because of border squashing */
+        .modern-ui-compact .monaco-grid-view .part.editor > .content {
+            width: 100% !important;
+        }
+
+        /* Editor area: Make last view in split views of editor groups full width to make up for pixel lost because of border squashing */
+        .modern-ui-compact .monaco-grid-view .part.editor .split-view-container > div.split-view-view.visible:last-child {
+            width: 100% !important;
+        }
+
+        /* Sidebar left when activity bar is left: Make left border a single pixel */
+        .modern-ui-compact .monaco-grid-view .part.sidebar.left:not(:has(> .has-composite-bar)) {
+            border-left: none !important;
+        }
+
+        /* Sidebar right when activity bar is right: Make right border a single pixel */
+        .modern-ui-compact .monaco-grid-view .part.sidebar.right:not(:has(> .has-composite-bar)) {
+            border-right: none !important;
+        }
+
+        /* Sidebar list entries: Make up for pixel lost because of border squashing */
+        .modern-ui-compact .monaco-grid-view .part.sidebar .monaco-list-row {
+            right: calc(var(--vscode-spacing-size20) - 1px) !important;
+        }
+
+        /* Tabs: Restore bottom border, remove left padding */
+        .modern-ui-tabs .part.editor .tabs-and-actions-container {
+            --modern-ui-editor-tabs-border: var(--vscode-editorGroupHeader-tabsBorder) !important;
+            padding-left: 0px !important;
+        }
+
+        /* Tabs: Restore border in between tabs, remove rounded corners & remove border block */
+        .modern-ui-tabs .part.editor .tabs-container > .tab,
+        .modern-ui-tabs .modern-ui-editor-tab {
+            border-right: 1px solid var(--vscode-tab-border) !important;
+            border-block: none !important;
+            border-radius: 0px !important;
+        }
+
+        /* Tabs: Remove "pill" fill in order to let tabs draw their background by themselves again */
+        .tabs-container > .tab > .tab-fill {
+            display: none !important;
+        }
+
+        /* Tabs: Restore background color of inactive tab */
+        .modern-ui-tabs.monaco-workbench .part.editor > .content .editor-group-container > .title.tabs {
+            background-color: var(--modern-ui-editor-tab-inactive-background) !important;
+        }
+
+        /* Tabs: Restore background color of active tab of active editor group */
+        .modern-ui-tabs.monaco-workbench .part.editor > .content .editor-group-container.active > .title .tabs-container > .tab.active {
+            background-color: var(--modern-ui-editor-tab-active-background) !important;
+        }
+
+        /* Tabs: Restore background color of hovering not selected tabs */
+        .modern-ui-tabs.monaco-workbench .part.editor > .content .editor-group-container.active > .title .tabs-container > .tab:not(.selected):hover,
+        .modern-ui-tabs.monaco-workbench .part.editor > .content .editor-group-container:not(.active) > .title .tabs-container > .tab:not(.selected):hover {
+            background-color: var(--modern-ui-editor-tab-hover-background) !important;
+        }
+
+        /* Tabs: Restore background color of active tab of inactive editor group */
+        .modern-ui-tabs.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab.active {
+            /* Note: modern-ui-editor-tab-unfocused-active-background just pulls modern-ui-editor-tab-active-background at this moment... */
+            background-color: var(--modern-ui-editor-tab-unfocused-active-background) !important;
+        }
+
+        /* Tabs: Reenable top border */
+        .modern-ui-tabs.monaco-workbench .part.editor .tabs-container > .tab .tab-border-top-container {
+            display: block !important;
+        }
+
+        /* Tabs: Reenable background color of top border of selected tab */
+        .modern-ui-tabs.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab.active.tab-border-top:not(:focus) > .tab-border-top-container,
+        .modern-ui-tabs.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab.selected.tab-border-top:not(:focus) > .tab-border-top-container {
+            background-color: var(--vscode-tab-selectedBorderTop) !important;
+        }
+
+        /* Tabs: Restore full-width dirty border top */
+        .modern-ui-tabs.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab.dirty.dirty-border-top > .tab-border-top-container {
+            left: 0px !important;
+            width: 100% !important;
+            border-radius: 0px !important;
+        }
+
+        /* Tabs: Reenable bottom border */
+        .modern-ui-tabs .part.editor .tabs-container > .tab .tab-border-bottom-container {
+            display: block !important;
+        }
+
+        /* Tabs: Reenable background color of bottom border of active tab */
+        .modern-ui-tabs.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab.active.tab-border-bottom > .tab-border-bottom-container {
+            background-color: var(--vscode-tab-activeBorder) !important;
         }
     </style>
