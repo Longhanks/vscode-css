@@ -181,23 +181,6 @@
             box-shadow: 0 2px 8px var(--vscode-widget-shadow) !important;
         }
 
-        /* Command palette: Translucency */
-        .monaco-workbench .quick-input-widget {
-            background-color: color-mix(in srgb, var(--vscode-quickInput-background) 30%, transparent) !important;
-            backdrop-filter: blur(40px) saturate(180%);
-            border: 1px solid #d1d1d1 !important;
-        }
-
-        /* Command palette list items: Translucency */
-        .monaco-workbench .quick-input-widget .monaco-list-rows {
-            background-color: transparent !important;
-        }
-
-        /* Command palette text input: Translucency */
-        .monaco-workbench .quick-input-widget .quick-input-filter .monaco-inputbox {
-            background: color-mix(in srgb, var(--vscode-input-background) 60%, transparent) !important;
-        }
-
         /* Editor: area: Make left border a single pixel */
         .modern-ui-compact .monaco-grid-view .part.editor:not(.modal-editor-part):not(.floating-editor-outer-left) {
             border-left: none !important;
@@ -295,5 +278,10 @@
         /* Tabs: Reenable background color of bottom border of active tab */
         .modern-ui-tabs.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab.active.tab-border-bottom > .tab-border-bottom-container {
             background-color: var(--vscode-tab-activeBorder) !important;
+        }
+
+        /* Tabs: Hide tab dividers */
+        .modern-ui-tabs.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab > .tab-divider {
+            display: none !important;
         }
     </style>
