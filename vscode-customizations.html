@@ -255,11 +255,14 @@
         /* Tabs: Reenable top border */
         .modern-ui-tabs.monaco-workbench .part.editor .tabs-container > .tab .tab-border-top-container {
             display: block !important;
+            z-index: 6;
+            top: 0;
+            height: 1px;
         }
 
         /* Tabs: Reenable background color of top border of selected tab */
-        .modern-ui-tabs.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab.active.tab-border-top:not(:focus) > .tab-border-top-container,
-        .modern-ui-tabs.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab.selected.tab-border-top:not(:focus) > .tab-border-top-container {
+        .modern-ui-tabs.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab.active.tab-border-top > .tab-border-top-container,
+        .modern-ui-tabs.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab.selected.tab-border-top > .tab-border-top-container {
             background-color: var(--vscode-tab-selectedBorderTop) !important;
         }
 
